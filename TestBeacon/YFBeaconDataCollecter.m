@@ -79,6 +79,34 @@
     }
 }
 
+- (void)testDB {
+    
+    std::vector<BEACON_VALUE> allData;
+    
+    for (int i = 0; i < 3; ++i) {
+        
+        BEACON_VALUE a;
+        
+        a.time = 100;
+        
+        a.ID = "13234";
+        
+        a.x = 100;
+        
+        a.y = 100;
+        
+        a.r = 10;
+        
+        a.M = i;
+        
+        a.bM = true;
+        
+        allData.push_back(a);
+    }
+    
+    saveToDB(allData);
+}
+
 - (void)setBeaconProcesser:(YFBeaconDataProcesser*)processer {
     
     beaconProcesser = processer;
@@ -127,19 +155,19 @@ void saveToDB(const std::vector<BEACON_VALUE>& allData) {
         
         BeaconRaw *raw = [[BeaconRaw alloc] init];
         
-        raw.time = iter->time;
+        raw.time = [NSNumber numberWithInteger:iter->time];
         
         std::string minor = iter->ID;
         
         raw.minor = [NSString stringWithCString:minor.c_str() encoding:NSUTF8StringEncoding];
         
-        raw.x = iter->x;
+        raw.x = [NSNumber numberWithDouble:iter->x];
         
-        raw.y = iter->y;
+        raw.y = [NSNumber numberWithDouble:iter->y];
         
-        raw.r = iter->r;
+        raw.r = [NSNumber numberWithDouble:iter->r];
         
-        raw.M = iter->M;
+        raw.M = [NSNumber numberWithDouble:iter->M];
         
         [array addObject:raw];
     }

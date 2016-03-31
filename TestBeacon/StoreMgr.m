@@ -47,9 +47,9 @@
     
     [_db open];
     
-    [_db executeUpdate:@"CREATE TABLE Beacon (time integer, minor text, x float, y float, r float, M float)"];
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Beacon (time integer,minor text,x float,y float,r float,M float)"];
     
-    [_db executeUpdate:@"CREATE TABLE Location (x float, y float)"];
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Location (x float,y float)"];
     
     [_db class];
     
@@ -65,7 +65,7 @@
     
     for (BeaconRaw *raw in beaconRawData) {
         
-        [_db executeUpdate:@"INSERT INTO Beacon (time, minor, x, y, r, M) VALUES (?,?,?,?,?,?)", raw.time, raw.minor, raw.x, raw.y, raw.r, raw.M];
+        [_db executeUpdate:@"INSERT INTO Beacon (time,minor,x,y,r,M) VALUES (?,?,?,?,?,?)", raw.time, raw.minor, raw.x, raw.y, raw.r, raw.M];
     }
     
     [_db close];
@@ -78,7 +78,7 @@
         return ;
     }
     
-    [_db executeUpdate:@"INSERT INTO Location (x, y) VALUES (?,?)", x, y];
+    [_db executeUpdate:@"INSERT INTO Location (x, y) VALUES (?,?)", [NSNumber numberWithDouble:x], [NSNumber numberWithDouble:y]];
     
     [_db close];
 }

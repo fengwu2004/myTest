@@ -10,11 +10,11 @@
 
 @interface BeaconRaw : NSObject
 
-@property (nonatomic, assign) NSInteger time;
+@property (nonatomic, retain) NSNumber *time;
 @property (nonatomic, copy) NSString *minor;
-@property (nonatomic, assign) double x;
-@property (nonatomic, assign) double y;
-@property (nonatomic, assign) double r;
-@property (nonatomic, assign) double M;
+@property (nonatomic, retain) NSNumber *x;
+@property (nonatomic, retain) NSNumber *y;
+@property (nonatomic, retain) NSNumber *r;
+@property (nonatomic, retain) NSNumber *M;
 
 @end
