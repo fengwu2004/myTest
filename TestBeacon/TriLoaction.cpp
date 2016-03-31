@@ -3,7 +3,7 @@
 #include <stdlib.h>
 //#include <qmessagebox.h>	//stdlib.h
 
-CVector2 extern svv[5];
+CVector2 svv[5];
 
 #define MINVALUE 0.000001
 #define PI 3.14159265358979323846264338327950288419716939937510

@@ -77,9 +77,7 @@
     
     for (CLBeacon *beacon in beacons) {
         
-        NSString *emitterID = beacon.proximityUUID.UUIDString;
-        
-        std::string strId = [emitterID UTF8String];
+        std::string strId = beaconMinor([beacon.minor doubleValue]);
         
         double x = 0, y = 0;
         
@@ -95,17 +93,20 @@
     }
 }
 
-BEACON_VALUE dataAdapter(CLBeacon* beacon, double x, double y) {
-    
-    NSString *emitterID = beacon.proximityUUID.UUIDString;
-    
-    BEACON_VALUE data;
+std::string beaconMinor(double minor) {
     
     std::stringstream minorStream;
     
-    minorStream << beacon.minor;
+    minorStream << minor;
     
-    data.ID =  minorStream.str();
+    return minorStream.str();
+}
+
+BEACON_VALUE dataAdapter(CLBeacon* beacon, double x, double y) {
+    
+    BEACON_VALUE data;
+    
+    data.ID =  beaconMinor([beacon.minor doubleValue]);
     
     data.x = x;
     

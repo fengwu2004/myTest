@@ -27,3 +27,13 @@ void MyDataProcesser::ProcessData(const std::vector<BEACON_VALUE> &alldata) {
     
     pLocationProcesser->SetScanning((int)size, data);
 }
+
+bool MyDataProcesser::CheckAndGetOutput(double& x, double& y) {
+    
+    if (pLocationProcesser->Location(&x, &y)) {
+        
+        return true;
+    }
+    
+    return false;
+}

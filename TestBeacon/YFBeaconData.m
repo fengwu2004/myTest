@@ -41,4 +41,3 @@ bool YFBeaconDataProcesser::GetPos(const std::string& strId, double& x, double& 
     
     return true;
 }
-

@@ -25,10 +25,13 @@ public:
     
     virtual void ProcessData(const std::vector<BEACON_VALUE>& alldata) = 0;
     
+    virtual bool CheckAndGetOutput(double& x, double& y) = 0;
+    
     bool GetPos(const std::string& strId, double& x, double& y);
     
 private:
     std::map<std::string, YFBeaconEmitter> m_allEmitters;
+    
     bool m_bRunning;
 };
 

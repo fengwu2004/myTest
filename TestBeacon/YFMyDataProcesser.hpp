@@ -21,6 +21,8 @@ public:
     
     virtual void ProcessData(const std::vector<BEACON_VALUE>& alldata);
     
+    virtual bool CheckAndGetOutput(double& x, double& y);
+    
 private:
     CTriLoaction *pLocationProcesser;
 };

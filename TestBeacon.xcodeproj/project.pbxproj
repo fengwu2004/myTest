@@ -19,6 +19,7 @@
 		2C7BDA441CACCAD800A4D298 /* YFMyDataProcesser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BDA421CACCAD800A4D298 /* YFMyDataProcesser.cpp */; };
 		2CCCBA7E1CACCE130011095A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCCBA7D1CACCE130011095A /* CoreLocation.framework */; };
 		2CCCBA841CACD8350011095A /* TriLoaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCCBA821CACD8350011095A /* TriLoaction.cpp */; };
+		2CCCBA871CACFA1F0011095A /* beacon.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CCCBA861CACFA1F0011095A /* beacon.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		2CCCBA821CACD8350011095A /* TriLoaction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriLoaction.cpp; sourceTree = "<group>"; };
 		2CCCBA831CACD8350011095A /* TriLoaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLoaction.h; sourceTree = "<group>"; };
 		2CCCBA851CACF01B0011095A /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		2CCCBA861CACFA1F0011095A /* beacon.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beacon.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,8 @@
 				2C7BDA361CACC78E00A4D298 /* CMMatrix.h */,
 				2C7BDA3C1CACC79900A4D298 /* YFBeaconData.h */,
 				2C7BDA3D1CACC79900A4D298 /* YFBeaconData.m */,
+				2C7BDA421CACCAD800A4D298 /* YFMyDataProcesser.cpp */,
+				2C7BDA431CACCAD800A4D298 /* YFMyDataProcesser.hpp */,
 				2C7BDA3E1CACC79900A4D298 /* YFBeaconDataCollecter.h */,
 				2C7BDA3F1CACC79900A4D298 /* YFBeaconDataCollecter.m */,
 				2C7BDA371CACC78E00A4D298 /* CVector.h */,
@@ -96,9 +100,8 @@
 				2C7BDA2A1CACC6C200A4D298 /* Assets.xcassets */,
 				2C7BDA2C1CACC6C200A4D298 /* LaunchScreen.storyboard */,
 				2C7BDA2F1CACC6C200A4D298 /* Info.plist */,
+				2CCCBA861CACFA1F0011095A /* beacon.txt */,
 				2C7BDA1E1CACC6C200A4D298 /* Supporting Files */,
-				2C7BDA421CACCAD800A4D298 /* YFMyDataProcesser.cpp */,
-				2C7BDA431CACCAD800A4D298 /* YFMyDataProcesser.hpp */,
 				2CCCBA851CACF01B0011095A /* Common.h */,
 			);
 			path = TestBeacon;
@@ -169,6 +172,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CCCBA871CACFA1F0011095A /* beacon.txt in Resources */,
 				2C7BDA2E1CACC6C200A4D298 /* LaunchScreen.storyboard in Resources */,
 				2C7BDA2B1CACC6C200A4D298 /* Assets.xcassets in Resources */,
 				2C7BDA291CACC6C200A4D298 /* Main.storyboard in Resources */,
@@ -302,7 +306,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestBeacon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellfun.TestBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -313,6 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = TestBeacon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yellfun.TestBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
