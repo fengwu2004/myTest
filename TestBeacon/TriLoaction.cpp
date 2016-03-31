@@ -251,7 +251,7 @@ double covN(unsigned int n)
 	for (unsigned int i=0; i<n; i++) sumx+=(v[i]-con)*(v[i]-con);	//求和
 	double conv=sumx/n;
 
-	delete v;
+	delete [] v;
 	return conv;
 }
 
@@ -501,7 +501,7 @@ bool WcaLocation(unsigned int N,CVector2 *v,double *r,double *A,double *M, bool 
 
 #define ADD_CLEAR_TIME 3000		//增加Beacon清除时间3秒
 #define DELAY_CLEAR_TIME 3000	//Beacon存在最大时间3秒
-#define NULL 0
+//#define NULL 0
 #define SAFE_DELETE(x) if(NULL!=x) {delete x; x=NULL;}
 #define KALMAN_COUNT 2
 #define SMOOTH_COUNT 3	//链表出去的数
@@ -634,6 +634,11 @@ bool CTriLoaction::Location(double *outx,double *outy)
 		SAFE_DELETE(pKalman);
 		SAFE_DELETE(pSmooth);
 	};
+    
+    if (beacon.empty()) {
+        
+        return false;
+    }
 
 	CVector2 out;
 	CVector2 outfree;
@@ -688,11 +693,11 @@ bool CTriLoaction::Location(double *outx,double *outy)
 
 	*outx=out.x;
 	*outy=out.y;
-	SAFE_DELETE(v);
-	SAFE_DELETE(r);
-	SAFE_DELETE(A);
-	SAFE_DELETE(M);
-	SAFE_DELETE(bM);
+	delete[] v;
+	delete[] r;
+	delete[] A;
+	delete[] M;
+	delete[] bM;
 	return result;
 };
 

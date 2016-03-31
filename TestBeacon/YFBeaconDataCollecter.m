@@ -50,6 +50,13 @@
     
     _locationManager = [[CLLocationManager alloc] init];
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [_locationManager requestWhenInUseAuthorization];
+        
+        [_locationManager requestAlwaysAuthorization];
+    }
+    
     [_locationManager setDelegate:self];
     
     [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
@@ -59,15 +66,29 @@
     return self;
 }
 
+- (void)stop {
+    
+    if (_locationManager) {
+        
+        [_locationManager stopMonitoringForRegion:_beaconRegion];
+        
+        [_locationManager stopRangingBeaconsInRegion:_beaconRegion];
+    }
+}
+
 - (void)setBeaconProcesser:(YFBeaconDataProcesser*)processer {
     
     beaconProcesser = processer;
+    
+    [self stop];
     
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"];
     
     _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@""];
     
     [_locationManager startRangingBeaconsInRegion:_beaconRegion];
+    
+    [_locationManager startMonitoringForRegion:_beaconRegion];
 }
 
 #pragma mark --CLLocationManagerDelegate
