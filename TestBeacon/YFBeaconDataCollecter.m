@@ -12,6 +12,7 @@
 #include "YFBeaconData.h"
 #include <sstream>
 
+#define regionuuid @"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"
 
 @interface YFBeaconDataCollecter()<CLLocationManagerDelegate>
 
@@ -68,7 +69,7 @@
 
 - (void)stop {
     
-    if (_locationManager) {
+    if (_beaconRegion) {
         
         [_locationManager stopMonitoringForRegion:_beaconRegion];
         
@@ -82,7 +83,7 @@
     
     [self stop];
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"];
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:regionuuid];
     
     _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@""];
     
