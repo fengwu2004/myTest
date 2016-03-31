@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C6946711CAD649200DA57A0 /* YFMotionAndDirectionMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */; };
+		2C6946731CAD64F900DA57A0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6946721CAD64F900DA57A0 /* CoreMotion.framework */; };
 		2C7BDA201CACC6C200A4D298 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BDA1F1CACC6C200A4D298 /* main.m */; };
 		2C7BDA231CACC6C200A4D298 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BDA221CACC6C200A4D298 /* AppDelegate.m */; };
 		2C7BDA261CACC6C200A4D298 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BDA251CACC6C200A4D298 /* ViewController.m */; };
@@ -25,12 +27,16 @@
 		2CB3DD7A1CAD1242004C296E /* StoreMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3DD791CAD1242004C296E /* StoreMgr.m */; };
 		2CB3DD7E1CAD190A004C296E /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CB3DD7D1CAD190A004C296E /* libsqlite3.tbd */; };
 		2CB3DD811CAD1998004C296E /* BeaconRaw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3DD801CAD1998004C296E /* BeaconRaw.m */; };
+		2CB3DD861CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3DD851CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp */; };
 		2CCCBA7E1CACCE130011095A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCCBA7D1CACCE130011095A /* CoreLocation.framework */; };
 		2CCCBA841CACD8350011095A /* TriLoaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCCBA821CACD8350011095A /* TriLoaction.cpp */; };
 		2CCCBA871CACFA1F0011095A /* beacon.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CCCBA861CACFA1F0011095A /* beacon.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C69466F1CAD649200DA57A0 /* YFMotionAndDirectionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFMotionAndDirectionMgr.h; sourceTree = "<group>"; };
+		2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFMotionAndDirectionMgr.m; sourceTree = "<group>"; };
+		2C6946721CAD64F900DA57A0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		2C7BDA1B1CACC6C200A4D298 /* TestBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7BDA1F1CACC6C200A4D298 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C7BDA211CACC6C200A4D298 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 		2CB3DD7D1CAD190A004C296E /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2CB3DD7F1CAD1998004C296E /* BeaconRaw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconRaw.h; sourceTree = "<group>"; };
 		2CB3DD801CAD1998004C296E /* BeaconRaw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconRaw.m; sourceTree = "<group>"; };
+		2CB3DD841CAD2889004C296E /* INERTIAL_NAVIGATION_INTEGRAL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = INERTIAL_NAVIGATION_INTEGRAL.h; sourceTree = "<group>"; };
+		2CB3DD851CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = INERTIAL_NAVIGATION_INTEGRAL.cpp; sourceTree = "<group>"; };
 		2CCCBA7D1CACCE130011095A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2CCCBA821CACD8350011095A /* TriLoaction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriLoaction.cpp; sourceTree = "<group>"; };
 		2CCCBA831CACD8350011095A /* TriLoaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLoaction.h; sourceTree = "<group>"; };
@@ -79,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C6946731CAD64F900DA57A0 /* CoreMotion.framework in Frameworks */,
 				2CB3DD7E1CAD190A004C296E /* libsqlite3.tbd in Frameworks */,
 				2CCCBA7E1CACCE130011095A /* CoreLocation.framework in Frameworks */,
 			);
@@ -90,6 +99,7 @@
 		2C7BDA121CACC6C200A4D298 = {
 			isa = PBXGroup;
 			children = (
+				2C6946721CAD64F900DA57A0 /* CoreMotion.framework */,
 				2CB3DD7D1CAD190A004C296E /* libsqlite3.tbd */,
 				2CB3DD7B1CAD18FE004C296E /* libsqlite3.0.tbd */,
 				2CCCBA7D1CACCE130011095A /* CoreLocation.framework */,
@@ -129,6 +139,8 @@
 				2CCCBA861CACFA1F0011095A /* beacon.txt */,
 				2C7BDA1E1CACC6C200A4D298 /* Supporting Files */,
 				2CCCBA851CACF01B0011095A /* Common.h */,
+				2C69466F1CAD649200DA57A0 /* YFMotionAndDirectionMgr.h */,
+				2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */,
 			);
 			path = TestBeacon;
 			sourceTree = "<group>";
@@ -144,6 +156,8 @@
 		2CB3DD661CAD1206004C296E /* location */ = {
 			isa = PBXGroup;
 			children = (
+				2CB3DD841CAD2889004C296E /* INERTIAL_NAVIGATION_INTEGRAL.h */,
+				2CB3DD851CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp */,
 				2C7BDA351CACC78E00A4D298 /* CMMatrix.cpp */,
 				2C7BDA361CACC78E00A4D298 /* CMMatrix.h */,
 				2C7BDA371CACC78E00A4D298 /* CVector.h */,
@@ -257,12 +271,14 @@
 				2C7BDA411CACC79900A4D298 /* YFBeaconDataCollecter.m in Sources */,
 				2C7BDA261CACC6C200A4D298 /* ViewController.m in Sources */,
 				2CB3DD731CAD1234004C296E /* FMDatabase.m in Sources */,
+				2C6946711CAD649200DA57A0 /* YFMotionAndDirectionMgr.m in Sources */,
 				2CB3DD7A1CAD1242004C296E /* StoreMgr.m in Sources */,
 				2C7BDA441CACCAD800A4D298 /* YFMyDataProcesser.m in Sources */,
 				2CB3DD761CAD1234004C296E /* FMDatabaseQueue.m in Sources */,
 				2CB3DD771CAD1234004C296E /* FMResultSet.m in Sources */,
 				2CB3DD811CAD1998004C296E /* BeaconRaw.m in Sources */,
 				2CB3DD751CAD1234004C296E /* FMDatabasePool.m in Sources */,
+				2CB3DD861CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp in Sources */,
 				2C7BDA401CACC79900A4D298 /* YFBeaconData.m in Sources */,
 				2C7BDA231CACC6C200A4D298 /* AppDelegate.m in Sources */,
 				2C7BDA3A1CACC78E00A4D298 /* CMMatrix.cpp in Sources */,

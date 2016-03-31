@@ -13,6 +13,7 @@
 #include <sstream>
 #import "StoreMgr.h"
 #import "BeaconRaw.h"
+#import "YFMotionAndDirectionMgr.h"
 
 #define regionuuid @"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"
 
@@ -145,6 +146,11 @@
     }
     
     saveToDB(allData);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading{
+    
+    [YFMotionAndDirectionMgr sharedInstance].direction = ((newHeading.trueHeading > 0) ? newHeading.trueHeading : newHeading.magneticHeading);
 }
 
 void saveToDB(const std::vector<BEACON_VALUE>& allData) {
