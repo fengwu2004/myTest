@@ -6,8 +6,9 @@
 //  Copyright © 2016年 ky. All rights reserved.
 //
 
-#include "YFMyDataProcesser.hpp"
+#include "YFMyDataProcesser.h"
 #include "TriLoaction.h"
+#import "StoreMgr.h"
 
 MyDataProcesser::MyDataProcesser(const std::vector<YFBeaconEmitter>& allEmitters):YFBeaconDataProcesser(allEmitters) {
     
@@ -31,6 +32,8 @@ void MyDataProcesser::ProcessData(const std::vector<BEACON_VALUE> &alldata) {
 bool MyDataProcesser::CheckAndGetOutput(double& x, double& y) {
     
     if (pLocationProcesser->Location(&x, &y)) {
+        
+        [[StoreMgr sharedInstance] saveLocation:x andY:y];
         
         return true;
     }

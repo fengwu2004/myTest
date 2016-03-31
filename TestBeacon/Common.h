@@ -9,6 +9,8 @@
 #ifndef Common_h
 #define Common_h
 
+#include <string>
+
 struct BEACON_VALUE {
     
     unsigned int time;//当前时间千分之一秒
@@ -27,6 +29,5 @@ struct YFBeaconEmitter {
     double x;
     double y;
 };
-
 
 #endif /* Common_h */

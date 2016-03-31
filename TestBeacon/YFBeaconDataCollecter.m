@@ -11,6 +11,8 @@
 #import <UIKit/UIKit.h>
 #include "YFBeaconData.h"
 #include <sstream>
+#import "StoreMgr.h"
+#import "BeaconRaw.h"
 
 #define regionuuid @"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"
 
@@ -113,6 +115,36 @@
         
         beaconProcesser->ProcessData(allData);
     }
+    
+    saveToDB(allData);
+}
+
+void saveToDB(const std::vector<BEACON_VALUE>& allData) {
+    
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    
+    for (std::vector<BEACON_VALUE>::const_iterator iter = allData.begin(); iter != allData.end(); ++iter) {
+        
+        BeaconRaw *raw = [[BeaconRaw alloc] init];
+        
+        raw.time = iter->time;
+        
+        std::string minor = iter->ID;
+        
+        raw.minor = [NSString stringWithCString:minor.c_str() encoding:NSUTF8StringEncoding];
+        
+        raw.x = iter->x;
+        
+        raw.y = iter->y;
+        
+        raw.r = iter->r;
+        
+        raw.M = iter->M;
+        
+        [array addObject:raw];
+    }
+    
+    [[StoreMgr sharedInstance] saveBeacon:[array copy]];
 }
 
 std::string beaconMinor(double minor) {
