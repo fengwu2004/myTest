@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+class YFBeaconDataProcesser;
 
+@interface ViewController : UIViewController {
+    
+    YFBeaconDataProcesser *processer;
+}
 
 @end
 

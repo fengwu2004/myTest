@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#include "YFMyDataProcesser.hpp"
+
 
 @interface ViewController ()
 
@@ -15,8 +17,19 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    std::vector<YFBeaconEmitter> vctEmitters;
+    
+    processer = new MyDataProcesser(vctEmitters);
+    
+    processer->run();
+}
+
+- (void)dealloc {
+    
+    delete processer;
 }
 
 - (void)didReceiveMemoryWarning {
