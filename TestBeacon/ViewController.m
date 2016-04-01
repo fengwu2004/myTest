@@ -8,12 +8,14 @@
 
 #import "ViewController.h"
 #include "YFMyDataProcesser.h"
-
+#import "StoreMgr.h"
+#include "YFMyDataProcesser.h"
 
 @interface ViewController ()
 
 @property (nonatomic, retain) IBOutlet UILabel *ibLabelPos;
 @property (nonatomic, retain) NSTimer *timer;
+@property (nonatomic, retain) NSTimer *timerSensor;
 
 @end
 
@@ -77,14 +79,29 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
 
 - (void)checkLocation:(id)sender {
     
-    double x = 0, y = 0;
+    [_timerSensor invalidate];
     
-    if (processer->CheckAndGetOutput(x, y)) {
+    _timerSensor = nil;
+    
+    if (processer->CheckAndGetOutput(m_x, m_x)) {
         
-        NSString *location = [NSString stringWithFormat:@"%.02f, %.02f", x, y];
-        
-        [_ibLabelPos setText:location];
+        _timerSensor = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(fastNaviProcess:) userInfo:nil repeats:YES];
     }
+}
+
+- (void)fastNaviProcess:(id)sender {
+    
+    processer->OnNaviProcess();
+    
+    MyDataProcesser *p = (MyDataProcesser *)processer;
+    
+    location loc = p->Result();
+    
+    [[StoreMgr sharedInstance] saveLocation:loc.x andY:loc.y];
+    
+    NSString *location = [NSString stringWithFormat:@"%.02f, %.02f", loc.x, loc.y];
+    
+    [_ibLabelPos setText:location];
 }
 
 @end

@@ -13,6 +13,10 @@ class YFBeaconDataProcesser;
 @interface ViewController : UIViewController {
     
     YFBeaconDataProcesser *processer;
+    
+    double m_x;
+    
+    double m_y;
 }
 
 @end

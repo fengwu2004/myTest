@@ -64,6 +64,8 @@
     [_locationManager setDelegate:self];
     
     [_locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    
+    [_locationManager startUpdatingHeading];
 
     _allEmitters = [[NSMutableDictionary alloc] init];
     

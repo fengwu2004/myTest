@@ -27,6 +27,8 @@ public:
     
     virtual bool CheckAndGetOutput(double& x, double& y) = 0;
     
+    virtual void OnNaviProcess() = 0;
+    
     bool GetPos(const std::string& strId, double& x, double& y);
     
 private:

@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include "YFBeaconData.h"
+#include "INERTIAL_NAVIGATION_INTEGRAL.h"
 
 class CTriLoaction;
 
@@ -23,8 +24,18 @@ public:
     
     virtual bool CheckAndGetOutput(double& x, double& y);
     
+    virtual void OnNaviProcess();
+    
+    location Result() { return m_loc; }
+    
 private:
-    CTriLoaction *pLocationProcesser;
+    CTriLoaction *m_pLocationProcesser;
+    
+    speed m_speed;
+    
+    location m_loc;
+    
+    INERTIAL_NAVIGATION_INTEGRAL *m_pNaviProcesser;
 };
 
 #endif /* YFMyDataProcesser_hpp */

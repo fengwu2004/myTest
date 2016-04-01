@@ -8,7 +8,7 @@
 
 #import "YFMotionAndDirectionMgr.h"
 
-static const NSTimeInterval delta = 0.005;
+static const NSTimeInterval delta = 0.2;
 
 @interface YFMotionAndDirectionMgr()
 
