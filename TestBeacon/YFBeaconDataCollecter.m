@@ -15,8 +15,6 @@
 #import "BeaconRaw.h"
 #import "YFMotionAndDirectionMgr.h"
 
-#define regionuuid @"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"
-
 @interface YFBeaconDataCollecter()<CLLocationManagerDelegate>
 
 @property (nonatomic, retain) CLLocationManager * locationManager;
@@ -84,34 +82,6 @@
         [_locationManager stopRangingBeaconsInRegion:_beaconRegion];
     }
 }
-
-//- (void)testDB {
-//    
-//    std::vector<BEACON_VALUE> allData;
-//    
-//    for (int i = 0; i < 3; ++i) {
-//        
-//        BEACON_VALUE a;
-//        
-//        a.time = 100;
-//        
-//        a.ID = "13234";
-//        
-//        a.x = 100;
-//        
-//        a.y = 100;
-//        
-//        a.r = 10;
-//        
-//        a.M = i;
-//        
-//        a.bM = true;
-//        
-//        allData.push_back(a);
-//    }
-//    
-//    saveToDB(allData);
-//}
 
 - (void)setBeaconProcesser:(YFBeaconDataProcesser*)processer {
     

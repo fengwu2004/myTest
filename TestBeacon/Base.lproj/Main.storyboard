@@ -47,6 +47,7 @@
                     <connections>
                         <outlet property="ibLabelPos" destination="bWv-Jy-kHp" id="WrF-0B-y0I"/>
                         <outlet property="ibStart" destination="t5R-al-C3u" id="YIt-gk-b31"/>
+                        <outlet property="ibStop" destination="hzK-1x-Q4N" id="ras-YQ-7Bq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

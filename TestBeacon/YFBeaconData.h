@@ -14,6 +14,12 @@
 #include <map>
 #include "Common.h"
 
+//#define regionuuid @"FDA50693-A4E2-4FB1-AFCF-C6EB07647825"
+//#define beaconSource @"beacon_tingchechang"
+
+#define regionuuid @"E2879308-4FA3-4F30-AC22-19ECDCB0D8C8"
+#define beaconSource @"beacon_1031"
+
 class YFBeaconDataProcesser {
     
 public:

@@ -34,7 +34,7 @@
 
 void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"beacon" ofType:@"txt"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:beaconSource ofType:@"txt"];
 
     NSString *str = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C601E341CAE690400D9AD85 /* beacon_1031.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C601E331CAE690400D9AD85 /* beacon_1031.txt */; };
 		2C6946711CAD649200DA57A0 /* YFMotionAndDirectionMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */; };
 		2C6946731CAD64F900DA57A0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6946721CAD64F900DA57A0 /* CoreMotion.framework */; };
 		2C7BDA201CACC6C200A4D298 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C7BDA1F1CACC6C200A4D298 /* main.m */; };
@@ -30,10 +31,11 @@
 		2CB3DD861CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CB3DD851CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp */; };
 		2CCCBA7E1CACCE130011095A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CCCBA7D1CACCE130011095A /* CoreLocation.framework */; };
 		2CCCBA841CACD8350011095A /* TriLoaction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2CCCBA821CACD8350011095A /* TriLoaction.cpp */; };
-		2CCCBA871CACFA1F0011095A /* beacon.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CCCBA861CACFA1F0011095A /* beacon.txt */; };
+		2CCCBA871CACFA1F0011095A /* beacon_tingchechang.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CCCBA861CACFA1F0011095A /* beacon_tingchechang.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C601E331CAE690400D9AD85 /* beacon_1031.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beacon_1031.txt; sourceTree = "<group>"; };
 		2C69466F1CAD649200DA57A0 /* YFMotionAndDirectionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFMotionAndDirectionMgr.h; sourceTree = "<group>"; };
 		2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFMotionAndDirectionMgr.m; sourceTree = "<group>"; };
 		2C6946721CAD64F900DA57A0 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -79,7 +81,7 @@
 		2CCCBA821CACD8350011095A /* TriLoaction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TriLoaction.cpp; sourceTree = "<group>"; };
 		2CCCBA831CACD8350011095A /* TriLoaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriLoaction.h; sourceTree = "<group>"; };
 		2CCCBA851CACF01B0011095A /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		2CCCBA861CACFA1F0011095A /* beacon.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beacon.txt; sourceTree = "<group>"; };
+		2CCCBA861CACFA1F0011095A /* beacon_tingchechang.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beacon_tingchechang.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +138,8 @@
 				2C7BDA2A1CACC6C200A4D298 /* Assets.xcassets */,
 				2C7BDA2C1CACC6C200A4D298 /* LaunchScreen.storyboard */,
 				2C7BDA2F1CACC6C200A4D298 /* Info.plist */,
-				2CCCBA861CACFA1F0011095A /* beacon.txt */,
+				2C601E331CAE690400D9AD85 /* beacon_1031.txt */,
+				2CCCBA861CACFA1F0011095A /* beacon_tingchechang.txt */,
 				2C7BDA1E1CACC6C200A4D298 /* Supporting Files */,
 				2CCCBA851CACF01B0011095A /* Common.h */,
 				2C69466F1CAD649200DA57A0 /* YFMotionAndDirectionMgr.h */,
@@ -253,7 +256,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CCCBA871CACFA1F0011095A /* beacon.txt in Resources */,
+				2CCCBA871CACFA1F0011095A /* beacon_tingchechang.txt in Resources */,
+				2C601E341CAE690400D9AD85 /* beacon_1031.txt in Resources */,
 				2C7BDA2E1CACC6C200A4D298 /* LaunchScreen.storyboard in Resources */,
 				2C7BDA2B1CACC6C200A4D298 /* Assets.xcassets in Resources */,
 				2C7BDA291CACC6C200A4D298 /* Main.storyboard in Resources */,
