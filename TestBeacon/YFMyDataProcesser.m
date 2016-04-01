@@ -61,7 +61,9 @@ void MyDataProcesser::OnNaviProcess() {
 
 bool MyDataProcesser::CheckAndGetOutput(double& x, double& y) {
     
-    if (m_pLocationProcesser->Location(&x, &y)) {
+    bool result = m_pLocationProcesser->Location(&x, &y);
+    
+    if (result) {
         
         m_loc.x = x; m_loc.y = y; m_loc.z = 0;
         

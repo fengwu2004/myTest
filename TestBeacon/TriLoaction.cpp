@@ -658,7 +658,6 @@ bool CTriLoaction::Location(double *outx,double *outy)
 		M[i]=beacon[i].M;
 		bM[i]=beacon[i].bM;
 	}
-	bool result;
 
 	if (M[1]-M[0]<0.4)	//判断区域
 	{
@@ -698,7 +697,7 @@ bool CTriLoaction::Location(double *outx,double *outy)
 	delete[] A;
 	delete[] M;
 	delete[] bM;
-	return result;
+	return true;
 };
 
 void  CTriLoaction::setParametern(double n)	//环境参数衰减变量n赋值

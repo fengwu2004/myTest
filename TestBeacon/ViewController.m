@@ -16,6 +16,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *ibLabelPos;
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic, retain) NSTimer *timerSensor;
+@property (nonatomic, retain) IBOutlet UIButton *ibStart;
 
 @end
 
@@ -64,6 +65,10 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
 
 - (IBAction)onStart:(id)sender {
     
+    [_ibStart setEnabled:NO];
+    
+    [_ibStart setTitle:@"已经开始了" forState:UIControlStateDisabled];
+    
     std::vector<YFBeaconEmitter> vctEmitters;
     
     loadBeaconData(vctEmitters);
@@ -83,7 +88,7 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
     
     _timerSensor = nil;
     
-    if (processer->CheckAndGetOutput(m_x, m_x)) {
+    if (processer->CheckAndGetOutput(m_x, m_y)) {
         
         _timerSensor = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(fastNaviProcess:) userInfo:nil repeats:YES];
     }

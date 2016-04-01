@@ -82,33 +82,33 @@
     }
 }
 
-- (void)testDB {
-    
-    std::vector<BEACON_VALUE> allData;
-    
-    for (int i = 0; i < 3; ++i) {
-        
-        BEACON_VALUE a;
-        
-        a.time = 100;
-        
-        a.ID = "13234";
-        
-        a.x = 100;
-        
-        a.y = 100;
-        
-        a.r = 10;
-        
-        a.M = i;
-        
-        a.bM = true;
-        
-        allData.push_back(a);
-    }
-    
-    saveToDB(allData);
-}
+//- (void)testDB {
+//    
+//    std::vector<BEACON_VALUE> allData;
+//    
+//    for (int i = 0; i < 3; ++i) {
+//        
+//        BEACON_VALUE a;
+//        
+//        a.time = 100;
+//        
+//        a.ID = "13234";
+//        
+//        a.x = 100;
+//        
+//        a.y = 100;
+//        
+//        a.r = 10;
+//        
+//        a.M = i;
+//        
+//        a.bM = true;
+//        
+//        allData.push_back(a);
+//    }
+//    
+//    saveToDB(allData);
+//}
 
 - (void)setBeaconProcesser:(YFBeaconDataProcesser*)processer {
     
