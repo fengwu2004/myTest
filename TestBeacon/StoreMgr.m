@@ -51,12 +51,17 @@
     
     [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Location (x float,y float)"];
     
-    [_db class];
+    [_db close];
     
     return self;
 }
 
 - (void)saveBeacon:(NSArray*)beaconRawData {
+    
+    if (_stopSave) {
+        
+        return;
+    }
     
     if (![_db open]) {
         
@@ -72,6 +77,11 @@
 }
 
 - (void)saveLocation:(double)x andY:(double)y {
+    
+    if (_stopSave) {
+        
+        return;
+    }
     
     if (![_db open]) {
         

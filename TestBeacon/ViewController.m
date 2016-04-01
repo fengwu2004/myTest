@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSTimer *timer;
 @property (nonatomic, retain) NSTimer *timerSensor;
 @property (nonatomic, retain) IBOutlet UIButton *ibStart;
+@property (nonatomic, retain) IBOutlet UIButton *ibStop;
 
 @end
 
@@ -25,6 +26,10 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    [_ibStart setHidden:NO];
+    
+    [_ibStop setHidden:YES];
 }
 
 void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
@@ -64,10 +69,10 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
 }
 
 - (IBAction)onStart:(id)sender {
+
+    [_ibStart setHidden:YES];
     
-    [_ibStart setEnabled:NO];
-    
-    [_ibStart setTitle:@"已经开始了" forState:UIControlStateDisabled];
+    [_ibStop setHidden:NO];
     
     std::vector<YFBeaconEmitter> vctEmitters;
     
@@ -77,9 +82,18 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
     
     processer->run();
     
-    [_ibLabelPos setText:@"无数据"];
+    [_ibLabelPos setText:@"正在接受数据"];
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkLocation:) userInfo:nil repeats:YES];
+}
+
+- (void)stop {
+    
+    [[StoreMgr sharedInstance] setStopSave:YES];
+    
+    [_ibStart setHidden:NO];
+    
+    [_ibStop setHidden:YES];
 }
 
 - (void)checkLocation:(id)sender {

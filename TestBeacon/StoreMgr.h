@@ -10,6 +10,8 @@
 
 @interface StoreMgr : NSObject
 
+@property (nonatomic, assign) BOOL stopSave;
+
 + (StoreMgr*)sharedInstance;
 
 - (void)saveBeacon:(NSArray*)beaconRawData;

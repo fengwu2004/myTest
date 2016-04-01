@@ -22,6 +22,7 @@
 @property (nonatomic, retain) CLLocationManager * locationManager;
 @property (nonatomic, retain) NSMutableDictionary *allEmitters;
 @property (nonatomic, retain) CLBeaconRegion *beaconRegion;
+@property (nonatomic, retain) NSDate *startDate;
 
 @end
 
@@ -49,6 +50,8 @@
         
         return nil;
     }
+    
+    _startDate = [NSDate date];
     
     beaconProcesser = nil;
     
@@ -128,6 +131,8 @@
 #pragma mark --CLLocationManagerDelegate
 -(void)locationManager:(CLLocationManager*)manager didRangeBeacons:(NSArray*)beacons inRegion:(CLBeaconRegion*)region {
 
+    unsigned int time = [[NSDate date] timeIntervalSinceDate:_startDate] * 1000;
+    
     std::vector<BEACON_VALUE> allData;
     
     for (CLBeacon *beacon in beacons) {
@@ -138,7 +143,7 @@
         
         if (beaconProcesser->GetPos(strId, x, y)) {
             
-            allData.push_back(dataAdapter(beacon, x, y));
+            allData.push_back(dataAdapter(beacon, time, x, y));
         }
     }
     
@@ -192,11 +197,13 @@ std::string beaconMinor(double minor) {
     return minorStream.str();
 }
 
-BEACON_VALUE dataAdapter(CLBeacon* beacon, double x, double y) {
+BEACON_VALUE dataAdapter(CLBeacon* beacon, unsigned int time, double x, double y) {
     
     BEACON_VALUE data;
     
     data.ID =  beaconMinor([beacon.minor doubleValue]);
+    
+    data.time = time;
     
     data.x = x;
     
