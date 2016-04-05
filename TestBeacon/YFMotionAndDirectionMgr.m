@@ -8,7 +8,7 @@
 
 #import "YFMotionAndDirectionMgr.h"
 
-static const NSTimeInterval delta = 0.2;
+static const NSTimeInterval delta = 0.02;
 
 @interface YFMotionAndDirectionMgr()
 
@@ -33,9 +33,27 @@ static const NSTimeInterval delta = 0.2;
     return _instance;
 }
 
+- (id)init {
+    
+    self = [super init];
+    
+    if (self) {
+        
+        [self setupMotionAndMonitor];
+    }
+    
+    return self;
+}
+
 - (void)setupMotionAndMonitor {
     
     _motionManager = [[CMMotionManager alloc] init];
+    
+    [_motionManager startGyroUpdates];
+    
+    [_motionManager startDeviceMotionUpdates];
+    
+    [_motionManager startAccelerometerUpdates];
     
     [_motionManager setGyroUpdateInterval:delta];
     
@@ -48,7 +66,7 @@ static const NSTimeInterval delta = 0.2;
 
 - (void)onMotionUpdate:(id)sender {
     
-    _acceleration = _motionManager.accelerometerData.acceleration;
+    _acceleration = _motionManager.deviceMotion.userAcceleration;
     
     _roll = _motionManager.deviceMotion.attitude.roll;
     

@@ -33,25 +33,43 @@
                                 <rect key="frame" x="285" y="285" width="30" height="30"/>
                                 <state key="normal" title="停止"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Raw" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Inu-NP-GWx">
+                                <rect key="frame" x="218" y="321" width="33" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0H-T4-PZa">
+                                <rect key="frame" x="279" y="321" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="i0H-T4-PZa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6aU-sX-550"/>
+                            <constraint firstItem="Inu-NP-GWx" firstAttribute="centerY" secondItem="i0H-T4-PZa" secondAttribute="centerY" id="ILp-lX-ALd"/>
                             <constraint firstItem="bWv-Jy-kHp" firstAttribute="top" secondItem="t5R-al-C3u" secondAttribute="bottom" constant="50" id="ImG-GR-nhW"/>
                             <constraint firstItem="t5R-al-C3u" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MNm-v2-xoX"/>
                             <constraint firstItem="t5R-al-C3u" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YCv-6S-Hyb"/>
+                            <constraint firstItem="i0H-T4-PZa" firstAttribute="leading" secondItem="Inu-NP-GWx" secondAttribute="trailing" constant="28" id="fkV-K2-1c9"/>
                             <constraint firstItem="hzK-1x-Q4N" firstAttribute="centerX" secondItem="t5R-al-C3u" secondAttribute="centerX" id="kAA-gm-SRi"/>
                             <constraint firstItem="bWv-Jy-kHp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vEa-my-eiW"/>
                             <constraint firstItem="hzK-1x-Q4N" firstAttribute="centerY" secondItem="t5R-al-C3u" secondAttribute="centerY" id="xeg-zR-LfO"/>
+                            <constraint firstItem="i0H-T4-PZa" firstAttribute="top" secondItem="hzK-1x-Q4N" secondAttribute="bottom" constant="6" id="z0N-Zd-cHp"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ibLabelPos" destination="bWv-Jy-kHp" id="WrF-0B-y0I"/>
+                        <outlet property="ibRaw" destination="i0H-T4-PZa" id="h7Z-Ju-qXV"/>
                         <outlet property="ibStart" destination="t5R-al-C3u" id="YIt-gk-b31"/>
                         <outlet property="ibStop" destination="hzK-1x-Q4N" id="ras-YQ-7Bq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136" y="339"/>
         </scene>
     </scenes>
 </document>

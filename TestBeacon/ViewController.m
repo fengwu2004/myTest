@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSTimer *timerSensor;
 @property (nonatomic, retain) IBOutlet UIButton *ibStart;
 @property (nonatomic, retain) IBOutlet UIButton *ibStop;
+@property (nonatomic, retain) IBOutlet UILabel *ibRaw;
 
 @end
 
@@ -82,9 +83,9 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
     
     processer->run();
     
-    [_ibLabelPos setText:@"正在接受数据"];
+    [_ibLabelPos setText:@"正在接收数据"];
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkLocation:) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkLocation:) userInfo:nil repeats:YES];
 }
 
 - (void)stop {
@@ -98,11 +99,17 @@ void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
 
 - (void)checkLocation:(id)sender {
     
+    NSLog(@"checkLocation");
+    
     [_timerSensor invalidate];
     
     _timerSensor = nil;
     
     if (processer->CheckAndGetOutput(m_x, m_y)) {
+        
+        
+        
+        [_ibRaw setText:[NSString stringWithFormat:@"%.02f, %.02f", m_x, m_y]];
         
         _timerSensor = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(fastNaviProcess:) userInfo:nil repeats:YES];
     }
