@@ -7,18 +7,10 @@
 //
 
 #import "ViewController.h"
-#include "YFMyDataProcesser.h"
-#import "StoreMgr.h"
-#include "YFMyDataProcesser.h"
+#import "SelectLocation.h"
+#import "BeaconSourceMgr.h"
 
-@interface ViewController ()
-
-@property (nonatomic, retain) IBOutlet UILabel *ibLabelPos;
-@property (nonatomic, retain) NSTimer *timer;
-@property (nonatomic, retain) NSTimer *timerSensor;
-@property (nonatomic, retain) IBOutlet UIButton *ibStart;
-@property (nonatomic, retain) IBOutlet UIButton *ibStop;
-@property (nonatomic, retain) IBOutlet UILabel *ibRaw;
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -27,107 +19,47 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    [_ibStart setHidden:NO];
-    
-    [_ibStop setHidden:YES];
 }
 
-void loadBeaconData(std::vector<YFBeaconEmitter>& emitters) {
+- (NSString*)getTitle:(NSInteger)nIndex {
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:beaconSource ofType:@"txt"];
+    return [[BeaconSourceMgr sharedInstance] getBeaconTitle:nIndex];
+}
 
-    NSString *str = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+- (void)onSelect:(NSInteger)nIndex {
+    
+    [[BeaconSourceMgr sharedInstance] setSelectIndex:nIndex];
+    
+    SelectLocation *vctl = [[SelectLocation alloc] init];
+    
+    [self.navigationController pushViewController:vctl animated:YES];
+}
 
-    NSArray *array = [str componentsSeparatedByString:@"\n"];
-
-    for (NSInteger i = 0; i < array.count; ++i) {
-
-        NSString *word = array[i];
-
-        NSArray *subWords = [word componentsSeparatedByString:@"\t"];
-
-        if (subWords.count < 3) {
-
-            continue;
-        }
-
-        YFBeaconEmitter emitter;
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCell"];
+    
+    if (!cell) {
         
-        emitter.strId = [subWords[0] UTF8String];
-        
-        emitter.x = [subWords[1] doubleValue];
-        
-        emitter.y = [subWords[2] doubleValue];
-
-        emitters.push_back(emitter);
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MyCell"];
     }
+    
+    [cell.textLabel setText:[self getTitle:indexPath.row]];
+    
+    return cell;
 }
 
-- (void)dealloc {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    delete processer;
+    return [[BeaconSourceMgr sharedInstance] totalCount];
 }
 
-- (IBAction)onStart:(id)sender {
-
-    [_ibStart setHidden:YES];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [_ibStop setHidden:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    std::vector<YFBeaconEmitter> vctEmitters;
-    
-    loadBeaconData(vctEmitters);
-    
-    processer = new MyDataProcesser(vctEmitters);
-    
-    processer->run();
-    
-    [_ibLabelPos setText:@"正在接收数据"];
-    
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(checkLocation:) userInfo:nil repeats:YES];
+    [self onSelect:indexPath.row];
 }
 
-- (void)stop {
-    
-    [[StoreMgr sharedInstance] setStopSave:YES];
-    
-    [_ibStart setHidden:NO];
-    
-    [_ibStop setHidden:YES];
-}
-
-- (void)checkLocation:(id)sender {
-    
-    NSLog(@"checkLocation");
-    
-    [_timerSensor invalidate];
-    
-    _timerSensor = nil;
-    
-    if (processer->CheckAndGetOutput(m_x, m_y)) {
-        
-        
-        
-        [_ibRaw setText:[NSString stringWithFormat:@"%.02f, %.02f", m_x, m_y]];
-        
-        _timerSensor = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(fastNaviProcess:) userInfo:nil repeats:YES];
-    }
-}
-
-- (void)fastNaviProcess:(id)sender {
-    
-    processer->OnNaviProcess();
-    
-    MyDataProcesser *p = (MyDataProcesser *)processer;
-    
-    location loc = p->Result();
-    
-    [[StoreMgr sharedInstance] saveLocation:loc.x andY:loc.y];
-    
-    NSString *location = [NSString stringWithFormat:@"%.02f, %.02f", loc.x, loc.y];
-    
-    [_ibLabelPos setText:location];
-}
 
 @end

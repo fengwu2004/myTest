@@ -14,6 +14,7 @@
 #import "StoreMgr.h"
 #import "BeaconRaw.h"
 #import "YFMotionAndDirectionMgr.h"
+#import "BeaconSourceMgr.h"
 
 @interface YFBeaconDataCollecter()<CLLocationManagerDelegate>
 
@@ -89,7 +90,9 @@
     
     [self stop];
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:regionuuid];
+    NSString *beaconUUID = [[BeaconSourceMgr sharedInstance] getBeaconUUID];
+    
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:beaconUUID];
     
     _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@""];
     

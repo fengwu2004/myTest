@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C548A021CB4F25C00DDA76E /* SelectLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C548A011CB4F25C00DDA76E /* SelectLocation.m */; };
+		2C548A041CB4F27300DDA76E /* SelectLocation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C548A031CB4F27300DDA76E /* SelectLocation.xib */; };
+		2C548A071CB4F76B00DDA76E /* BeaconSourceMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C548A061CB4F76B00DDA76E /* BeaconSourceMgr.m */; };
 		2C601E341CAE690400D9AD85 /* beacon_1031.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C601E331CAE690400D9AD85 /* beacon_1031.txt */; };
 		2C6946711CAD649200DA57A0 /* YFMotionAndDirectionMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */; };
 		2C6946731CAD64F900DA57A0 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C6946721CAD64F900DA57A0 /* CoreMotion.framework */; };
@@ -35,6 +38,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C548A001CB4F25C00DDA76E /* SelectLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLocation.h; sourceTree = "<group>"; };
+		2C548A011CB4F25C00DDA76E /* SelectLocation.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelectLocation.m; sourceTree = "<group>"; };
+		2C548A031CB4F27300DDA76E /* SelectLocation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectLocation.xib; sourceTree = "<group>"; };
+		2C548A051CB4F76B00DDA76E /* BeaconSourceMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconSourceMgr.h; sourceTree = "<group>"; };
+		2C548A061CB4F76B00DDA76E /* BeaconSourceMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconSourceMgr.m; sourceTree = "<group>"; };
 		2C601E331CAE690400D9AD85 /* beacon_1031.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = beacon_1031.txt; sourceTree = "<group>"; };
 		2C69466F1CAD649200DA57A0 /* YFMotionAndDirectionMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YFMotionAndDirectionMgr.h; sourceTree = "<group>"; };
 		2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YFMotionAndDirectionMgr.m; sourceTree = "<group>"; };
@@ -144,6 +152,11 @@
 				2CCCBA851CACF01B0011095A /* Common.h */,
 				2C69466F1CAD649200DA57A0 /* YFMotionAndDirectionMgr.h */,
 				2C6946701CAD649200DA57A0 /* YFMotionAndDirectionMgr.m */,
+				2C548A001CB4F25C00DDA76E /* SelectLocation.h */,
+				2C548A011CB4F25C00DDA76E /* SelectLocation.m */,
+				2C548A031CB4F27300DDA76E /* SelectLocation.xib */,
+				2C548A051CB4F76B00DDA76E /* BeaconSourceMgr.h */,
+				2C548A061CB4F76B00DDA76E /* BeaconSourceMgr.m */,
 			);
 			path = TestBeacon;
 			sourceTree = "<group>";
@@ -258,6 +271,7 @@
 			files = (
 				2CCCBA871CACFA1F0011095A /* beacon_tingchechang.txt in Resources */,
 				2C601E341CAE690400D9AD85 /* beacon_1031.txt in Resources */,
+				2C548A041CB4F27300DDA76E /* SelectLocation.xib in Resources */,
 				2C7BDA2E1CACC6C200A4D298 /* LaunchScreen.storyboard in Resources */,
 				2C7BDA2B1CACC6C200A4D298 /* Assets.xcassets in Resources */,
 				2C7BDA291CACC6C200A4D298 /* Main.storyboard in Resources */,
@@ -271,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C548A021CB4F25C00DDA76E /* SelectLocation.m in Sources */,
 				2CCCBA841CACD8350011095A /* TriLoaction.cpp in Sources */,
 				2C7BDA411CACC79900A4D298 /* YFBeaconDataCollecter.m in Sources */,
 				2C7BDA261CACC6C200A4D298 /* ViewController.m in Sources */,
@@ -282,6 +297,7 @@
 				2CB3DD771CAD1234004C296E /* FMResultSet.m in Sources */,
 				2CB3DD811CAD1998004C296E /* BeaconRaw.m in Sources */,
 				2CB3DD751CAD1234004C296E /* FMDatabasePool.m in Sources */,
+				2C548A071CB4F76B00DDA76E /* BeaconSourceMgr.m in Sources */,
 				2CB3DD861CAD2892004C296E /* INERTIAL_NAVIGATION_INTEGRAL.cpp in Sources */,
 				2C7BDA401CACC79900A4D298 /* YFBeaconData.m in Sources */,
 				2C7BDA231CACC6C200A4D298 /* AppDelegate.m in Sources */,

@@ -49,6 +49,8 @@
     
     [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Beacon (time integer,minor text,x float,y float,r float,M float)"];
     
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Raw (x float,y float)"];
+    
     [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS Location (x float,y float)"];
     
     [_db close];
@@ -89,6 +91,23 @@
     }
     
     [_db executeUpdate:@"INSERT INTO Location (x, y) VALUES (?,?)", [NSNumber numberWithDouble:x], [NSNumber numberWithDouble:y]];
+    
+    [_db close];
+}
+
+- (void)saveRaw:(double)x andY:(double)y {
+    
+    if (_stopSave) {
+        
+        return;
+    }
+    
+    if (![_db open]) {
+        
+        return ;
+    }
+    
+    [_db executeUpdate:@"INSERT INTO Raw (x, y) VALUES (?,?)", [NSNumber numberWithDouble:x], [NSNumber numberWithDouble:y]];
     
     [_db close];
 }

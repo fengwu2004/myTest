@@ -18,4 +18,6 @@
 
 - (void)saveLocation:(double)x andY:(double)y;
 
+- (void)saveRaw:(double)x andY:(double)y;
+
 @end
